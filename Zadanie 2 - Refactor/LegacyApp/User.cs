@@ -12,4 +12,19 @@ namespace LegacyApp
         public bool HasCreditLimit { get; internal set; }
         public int CreditLimit { get; internal set; }
     }
+    public static bool validate(string firstName, string lastName, string emailAddress)
+    {
+        return validateName(firstName, lastName) && validateEmail(emailAddress);
+
+    }
+    private static bool validateName(string firstName, string lastName)
+    {
+        return !(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName));
+       
+    }
+    private static bool validateEmail(string email)
+    {
+        return !(!email.Contains("@") && !email.Contains("."));
+           
+    }
 }
